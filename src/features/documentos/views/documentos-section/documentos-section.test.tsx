@@ -69,4 +69,38 @@ describe('DocumentosSection', () => {
     await userEvent.upload(container.querySelector('input[type=file]') as HTMLInputElement, new File(['x'], 'a.pdf', { type: 'application/pdf' }));
     expect(await screen.findByRole('alert')).toHaveTextContent('Solo se aceptan archivos .pdf o .txt');
   });
+
+  it('muestra el mensaje claro cuando el PDF no es válido o está dañado', async () => {
+    listar.mockResolvedValue([]);
+    const { ApiError } = await import('@/shared/models/api-models');
+    archivo.mockRejectedValueOnce(new ApiError('El archivo no es un PDF válido', 422));
+    const { container } = renderConRutas(<DocumentosSection casoId="c1" />);
+    const entrada = container.querySelector('input[type=file]') as HTMLInputElement;
+    await userEvent.upload(entrada, new File(['esto es texto'], 'falso.pdf', { type: 'application/pdf' }));
+    expect(await screen.findByRole('alert')).toHaveTextContent('El archivo no es un PDF válido');
+  });
+
+  it('muestra el mensaje de tamaño máximo cuando el archivo supera el límite', async () => {
+    listar.mockResolvedValue([]);
+    const { ApiError } = await import('@/shared/models/api-models');
+    archivo.mockRejectedValueOnce(new ApiError('El archivo supera el tamaño máximo permitido', 413));
+    const { container } = renderConRutas(<DocumentosSection casoId="c1" />);
+    await userEvent.upload(container.querySelector('input[type=file]') as HTMLInputElement, new File(['x'], 'grande.pdf', { type: 'application/pdf' }));
+    expect(await screen.findByRole('alert')).toHaveTextContent('El archivo supera el tamaño máximo permitido');
+  });
+
+  it('permite reintentar con el mismo archivo tras un error, sin recargar la página', async () => {
+    listar.mockResolvedValue([]);
+    const { ApiError } = await import('@/shared/models/api-models');
+    archivo.mockRejectedValueOnce(new ApiError('No se pudo guardar el archivo', 500)).mockResolvedValueOnce(doc('d7', 'historia.pdf'));
+    const { container } = renderConRutas(<DocumentosSection casoId="c1" />);
+    const entrada = container.querySelector('input[type=file]') as HTMLInputElement;
+    const f = new File(['%PDF-1.4'], 'historia.pdf', { type: 'application/pdf' });
+    await userEvent.upload(entrada, f);
+    expect(await screen.findByRole('alert')).toHaveTextContent('No se pudo guardar el archivo');
+    expect(entrada.value).toBe('');
+    await userEvent.upload(entrada, f);
+    expect(await screen.findByText('Archivo cargado: historia.pdf')).toBeInTheDocument();
+    expect(archivo).toHaveBeenCalledTimes(2);
+  });
 });
