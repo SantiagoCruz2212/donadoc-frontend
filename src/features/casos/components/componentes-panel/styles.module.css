@@ -1,0 +1,3 @@
+.lista { margin: 0 0 var(--space-md); padding-left: 18px; }
+.formulario { display: flex; gap: var(--space-md); align-items: end; flex-wrap: wrap; }
+.casilla { display: flex; gap: var(--space-sm); align-items: center; font-size: 0.9rem; font-weight: 600; padding-bottom: var(--space-sm); }

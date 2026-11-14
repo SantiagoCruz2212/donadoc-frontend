@@ -1,0 +1,4 @@
+.fila { list-style: none; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: var(--space-md); margin-bottom: var(--space-sm); }
+.cabecera { display: flex; gap: var(--space-sm); align-items: center; flex-wrap: wrap; }
+.acciones { display: flex; gap: var(--space-sm); align-items: center; flex-wrap: wrap; margin-top: var(--space-sm); }
+.codigo { font: inherit; width: 8.5rem; padding: var(--space-sm); border: 1px solid var(--color-border); border-radius: var(--radius-sm); letter-spacing: 0.15em; text-align: center; background: var(--color-surface); color: var(--color-text); }

@@ -1,0 +1,6 @@
+.boton { font: inherit; border: 1px solid transparent; border-radius: var(--radius-sm); padding: var(--space-sm) 14px; cursor: pointer; }
+.boton:disabled { opacity: 0.5; cursor: not-allowed; }
+.primario { background: var(--color-primary); color: var(--color-primary-contrast); }
+.secundario { background: var(--color-surface); color: var(--color-primary); border-color: var(--color-primary); }
+.peligro { background: var(--color-danger); color: var(--color-primary-contrast); }
+.enlace { background: none; color: var(--color-primary); text-decoration: underline; padding: var(--space-xs); }

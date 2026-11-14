@@ -1,0 +1,25 @@
+# Dependencias y compilados
+node_modules/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Secretos y configuración local: NUNCA se publican
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Archivos cargados por los usuarios (datos sensibles) y datos locales
+uploads/
+backend/uploads/
+pgdata/
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

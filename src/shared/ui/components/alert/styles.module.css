@@ -1,0 +1,4 @@
+.alerta { padding: 10px 14px; border-radius: var(--radius-md); margin: 12px 0; border: 1px solid transparent; }
+.ok { background: var(--color-success-background); color: #1c5a38; border-color: #b4e0c4; }
+.aviso { background: var(--color-warning-background); color: #7a5a00; border-color: #f0dc99; }
+.error { background: var(--color-danger-background); color: #8a2a1a; border-color: #f3c3bd; }

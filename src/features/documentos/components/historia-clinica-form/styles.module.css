@@ -1,0 +1,3 @@
+.acciones { display: flex; gap: var(--space-sm); flex-wrap: wrap; align-items: center; margin-top: var(--space-sm); }
+.archivo { display: flex; align-items: center; gap: var(--space-sm); font-weight: 400; font-size: 0.9rem; }
+.archivo input { border: 0; padding: 0; width: auto; }

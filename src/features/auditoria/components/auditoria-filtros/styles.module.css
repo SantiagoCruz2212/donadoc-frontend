@@ -1,0 +1,2 @@
+.filtros { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: var(--space-md); align-items: end; }
+.botones { display: flex; gap: var(--space-sm); }

@@ -1,0 +1,3 @@
+.rejilla { display: grid; grid-template-columns: 90px 1fr 1fr 1fr auto; gap: 12px; align-items: start; }
+.accion { align-self: end; }
+@media (max-width: 720px) { .rejilla { grid-template-columns: 1fr 1fr; } }

@@ -1,0 +1,2 @@
+.ruta { word-break: break-all; font-size: 0.82rem; }
+.paginacion { display: flex; gap: var(--space-md); align-items: center; justify-content: center; margin-top: var(--space-md); }

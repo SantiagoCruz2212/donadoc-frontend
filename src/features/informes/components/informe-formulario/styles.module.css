@@ -1,0 +1,6 @@
+.seccion { border: 1px solid var(--color-border); border-radius: var(--radius-sm); margin: 0 0 var(--space-md); padding: var(--space-md); min-width: 0; }
+.seccion legend { color: var(--color-primary); font-weight: 600; padding: 0 var(--space-sm); }
+.rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-md); align-items: start; }
+.tabla { grid-column: 1 / -1; min-width: 0; }
+.tituloTabla { margin: 0 0 var(--space-sm); color: var(--color-text); font-size: 0.95rem; }
+.acciones { display: flex; gap: var(--space-md); align-items: center; flex-wrap: wrap; }

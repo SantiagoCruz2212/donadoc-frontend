@@ -1,0 +1,38 @@
+# Plantilla de nginx: la imagen oficial sustituye ${CDN_ORIGIN} al arrancar (docker-entrypoint, envsubst).
+# La API se sirve por el mismo origen: no hace falta CORS en el navegador.
+server {
+  listen 80;
+  server_name _;
+  root /usr/share/nginx/html;
+  index index.html;
+  client_max_body_size 6m;
+
+  gzip on;
+  gzip_min_length 1024;
+  gzip_types text/css application/javascript application/json image/svg+xml;
+
+  # Archivos compilados: el nombre lleva la huella del contenido, así que se pueden guardar un año sin riesgo (CDN y navegador).
+  location /assets/ {
+    include /etc/nginx/conf.d/seguridad.inc;
+    add_header Cache-Control "public, max-age=31536000, immutable" always;
+    try_files $uri =404;
+  }
+
+  # La API NUNCA se cachea: contiene datos personales y de salud. Un CDN delante debe dejarla pasar (ver docs/CDN.md).
+  location /api/ {
+    include /etc/nginx/conf.d/seguridad.inc;
+    add_header Cache-Control "no-store" always;
+    proxy_pass http://backend:3000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+  }
+
+  # index.html referencia los archivos con huella: debe revalidarse siempre para que una versión nueva se vea de inmediato.
+  location / {
+    include /etc/nginx/conf.d/seguridad.inc;
+    add_header Cache-Control "no-cache" always;
+    try_files $uri /index.html;
+  }
+}

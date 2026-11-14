@@ -1,0 +1,4 @@
+.acciones { display: flex; gap: var(--space-sm); align-items: center; flex-wrap: wrap; margin: var(--space-sm) 0 var(--space-md); }
+.acciones > :first-child[role='alert'] { flex-basis: 100%; }
+.contra { display: inline-flex; gap: var(--space-sm); align-items: center; }
+.contra input { font: inherit; padding: var(--space-sm); border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--color-text); }

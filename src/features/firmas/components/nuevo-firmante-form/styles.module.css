@@ -1,0 +1,1 @@
+.formulario { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: var(--space-md); align-items: end; margin-top: var(--space-md); }

@@ -1,0 +1,9 @@
+.barra { display: flex; gap: var(--space-md); align-items: center; flex-wrap: wrap; background: var(--color-primary); color: var(--color-primary-contrast); padding: 12px var(--space-lg); }
+.navegacion { display: flex; gap: var(--space-sm); margin-left: var(--space-md); }
+.enlace { font: inherit; background: none; border: 0; border-bottom: 2px solid transparent; color: inherit; opacity: 0.8; cursor: pointer; padding: 2px 4px; }
+.enlace:hover { opacity: 1; }
+.activo { opacity: 1; border-bottom-color: currentColor; font-weight: 600; }
+.usuario { margin-left: auto; opacity: 0.85; }
+.selector { font: inherit; background: transparent; color: inherit; border: 1px solid rgba(255, 255, 255, 0.5); border-radius: var(--radius-sm); padding: 2px 6px; }
+.selector option { color: var(--color-text); }
+.salir { font: inherit; background: none; border: 0; color: inherit; text-decoration: underline; cursor: pointer; }

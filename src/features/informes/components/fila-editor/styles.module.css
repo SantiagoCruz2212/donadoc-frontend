@@ -1,0 +1,7 @@
+.rotulo { position: sticky; left: 0; z-index: 1; background: var(--color-surface); min-width: 9rem; white-space: nowrap; font-weight: 600; color: var(--color-text); border-right: 1px solid var(--color-border); }
+.rotulo span:first-child { margin-right: var(--space-sm); }
+.celda { min-width: 7.5rem; padding: var(--space-xs); }
+.celda input, .celda select { font: inherit; width: 100%; padding: var(--space-xs) var(--space-sm); border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--color-text); }
+.celda input[aria-invalid='true'], .celda select[aria-invalid='true'] { border-color: var(--color-danger); background: var(--color-danger-background); }
+.calculada input { background: var(--color-chip-background); border-style: dashed; font-weight: 600; text-align: right; }
+.error { display: block; color: var(--color-danger); font-weight: 400; font-size: 0.8rem; white-space: normal; }
