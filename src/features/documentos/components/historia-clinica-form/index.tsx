@@ -22,7 +22,16 @@ export function HistoriaClinicaForm({ register, errors, onSubmit, onUsarEjemplo,
         </Button>
         <label className={styles.archivo}>
           {t.documentos.orUpload}
-          <input type="file" accept=".pdf,.txt" onChange={(e) => onArchivo(e.target.files?.[0])} />
+          <input
+            type="file"
+            accept=".pdf,.txt"
+            onChange={(e) => {
+              const entrada = e.target;
+              onArchivo(entrada.files?.[0]);
+              // Se limpia el valor para poder elegir de nuevo el mismo archivo tras un error, sin recargar la página.
+              entrada.value = '';
+            }}
+          />
         </label>
       </div>
     </form>
