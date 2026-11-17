@@ -1,5 +1,7 @@
 # DonaDoc Frontend
 
+[![CI](https://github.com/SantiagoCruz2212/donadoc-frontend/actions/workflows/ci.yml/badge.svg)](https://github.com/SantiagoCruz2212/donadoc-frontend/actions/workflows/ci.yml)
+
 Interfaz web de **DonaDoc**, una plataforma para **diligenciar una sola vez** los formatos del INS de donación y trasplante de órganos y tejidos.
 Proyecto integrador del *Diplomado en Ingeniería de Software Asistida por IA*. Autor: Santiago Andrés Castro Cruz.
 
