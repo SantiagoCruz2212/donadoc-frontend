@@ -1,0 +1,9 @@
+{
+  "name": "donadoc-pruebas-funcionales",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pruebas funcionales de navegador de DonaDoc",
+  "scripts": { "funcionales": "node --test --test-concurrency=1 funcionales/e2e.test.mjs" },
+  "devDependencies": { "puppeteer-core": "^24.0.0" }
+}
