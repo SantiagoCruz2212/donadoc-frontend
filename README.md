@@ -73,3 +73,10 @@ La imagen sirve la aplicación con nginx (política de contenido con `CDN_ORIGIN
 - Aún no hay URL pública desplegada.
 - El manual de usuario está pendiente (hay un issue abierto en el backend).
 - La interfaz está en español e inglés, pero los formatos oficiales del INS solo están en español.
+
+## Demo en línea
+
+- Aplicación: https://donadoc-frontend.vercel.app
+- API: https://donadoc-backend.vercel.app
+
+Desplegado en Vercel (`vercel.json`). Variables al compilar: `VITE_API_BASE_URL` (URL de la API) y `VITE_TENANT_KEY` (clave pública de la organización). Manual de despliegue completo en el repositorio `donadoc-backend` (`docs/despliegue.md`).
