@@ -50,6 +50,15 @@ describe('guardias de ruta', () => {
     expect(screen.getByText('PANTALLA CASOS')).toBeInTheDocument();
   });
 
+  it('el superadmin solo ve Accesos y Cambiar clave (no casos ni red)', () => {
+    useSessionStore.getState().iniciarSesion('jwt', { ...usuario, rol: 'SUPER_ADMIN', nombre: 'Superadmin DonaDoc' });
+    app('/informes');
+    const nav = screen.getByRole('navigation', { name: 'Navegación principal' });
+    expect(nav).toHaveTextContent('AccesosCambiar clave');
+    expect(nav).not.toHaveTextContent('Casos');
+    expect(nav).not.toHaveTextContent('Red de trasplantes');
+  });
+
   it('el administrador ve la navegación completa, con la auditoría', () => {
     useSessionStore.getState().iniciarSesion('jwt', usuario);
     app('/casos');

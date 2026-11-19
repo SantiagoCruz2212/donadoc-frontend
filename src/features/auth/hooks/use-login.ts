@@ -22,7 +22,8 @@ export function useLogin() {
       const sesion = await ejecutar(datos);
       if (!sesion) return;
       iniciarSesion(sesion.accessToken, sesion.usuario);
-      navigate(RUTAS.casos, { replace: true });
+      // El superadmin no trabaja con casos: su pantalla de inicio es la gestión de accesos.
+      navigate(sesion.usuario.rol === 'SUPER_ADMIN' ? RUTAS.accesos : RUTAS.casos, { replace: true });
     },
     [ejecutar, iniciarSesion, navigate],
   );
