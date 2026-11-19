@@ -19,6 +19,7 @@ export default function MainLayout() {
     // Los informes periódicos los diligencian quienes pertenecen a una organización (el backend lo exige igualmente).
     ...(usuario?.rol === 'ADMIN_ORG' || usuario?.rol === 'OPERADOR' ? [{ texto: t.nav.reports, ruta: RUTAS.informes }] : []),
     ...(usuario?.rol === 'ADMIN_ORG' ? [{ texto: t.nav.audit, ruta: RUTAS.auditoria }] : []),
+    ...(usuario?.rol === 'SUPER_ADMIN' ? [{ texto: t.nav.access, ruta: RUTAS.accesos }] : []),
     { texto: t.nav.changePassword, ruta: RUTAS.cambiarClave },
   ];
   return (

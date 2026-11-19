@@ -7,6 +7,7 @@ export const RUTAS = {
   caso: (id: string) => `/casos/${id}`,
   red: '/red',
   auditoria: '/auditoria',
+  accesos: '/accesos',
   informes: '/informes',
   informe: (codigo: string, periodo: string) => `/informes/${codigo}/${periodo}`,
 } as const;
@@ -33,6 +34,8 @@ export const ENDPOINTS = {
   firmaVerificacion: (firmaId: string) => `/firmas/${firmaId}/verificacion`,
   red: '/red/trasplantes-vigentes',
   auditoria: '/auditoria',
+  accesos: '/accesos',
+  accesoRestablecer: (id: string) => `/accesos/${id}/restablecer`,
   informesPlantillas: '/informes/plantillas',
   informes: '/informes',
   informe: (codigo: string, periodo: string) => `/informes/${codigo}/${periodo}`,

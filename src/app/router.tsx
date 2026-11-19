@@ -5,6 +5,7 @@ import { RUTAS } from '@/shared/constants/constants';
 
 import MainLayout from './layouts/main-layout';
 import PublicLayout from './layouts/public-layout';
+import AccesosRoute from './routes/accesos';
 import AuditoriaRoute from './routes/auditoria';
 import CambiarClaveRoute from './routes/cambiar-clave';
 import CasoDetalleRoute from './routes/caso-detalle';
@@ -32,6 +33,7 @@ export const router = createBrowserRouter([
       { path: RUTAS.informes, element: <InformesRoute /> },
       { path: '/informes/:codigo/:periodo', element: <InformeDetalleRoute /> },
       { path: RUTAS.auditoria, element: <AuditoriaRoute /> },
+      { path: RUTAS.accesos, element: <AccesosRoute /> },
       { path: RUTAS.cambiarClave, element: <CambiarClaveRoute /> },
     ],
   },

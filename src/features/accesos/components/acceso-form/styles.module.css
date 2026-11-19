@@ -1,0 +1,2 @@
+.rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--space-md); align-items: end; }
+.accion { align-self: end; }
